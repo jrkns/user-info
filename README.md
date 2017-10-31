@@ -1,10 +1,13 @@
-# Container Structure
+# Docker Assignment
 
-โครงสร้าง Container ที่ต้องการ
+## Container Structure
+โครงสร้าง Container ดังนี้
 
 ![System structure](images/Docker-Worksheet.jpg)
 
 ## Port
+กำหนดไว้ดังนี้
+
 Agent | Docker | Localhost
 ------------- | ------------ | -------------
 UserAccountService  | 80 | 80
@@ -28,4 +31,12 @@ $ curl -L http://localhost/?username=alice
 "phone_number": "1234567890",
 "profile_image": "https://picsum.photos/1000"
 }
+```
+
+## How to kill?
+ทำตามวิธีการข้างล่างนี้
+
+```bash
+$ docker-compose down
+$ docker system prune --volumes -f
 ```
