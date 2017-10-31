@@ -1,10 +1,29 @@
 version: '3.3'
 
 services:
-    asset_mapping:
-        build: asset_mapping
+    user_account_service:
+        build: ./user_account_service
         ports:
-            - "28017:28017"
+            - "80:80"
+        depends_on:
+            - user_data
+        environment:
+            - DATABASE_HOST=user_data
+
+    user_data:
+        build: ./user_data
+
+    asset_service:
+        build: asset_service
+        ports:
+            - "3030:3030"
+        links:
+            - asset_mapping
+            
+    asset_mapping:
+        image: mongo:latest
+        ports: 
+            - "27017:27017"
 
     asset_mapping_seed:
         build: asset_mapping_seed

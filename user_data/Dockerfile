@@ -1,0 +1,8 @@
+FROM mysql:5.7.15
+
+ENV MYSQL_ROOT_PASSWORD 123
+ENV MYSQL_DATABASE ABCompany
+ENV MYSQL_USER admin
+ENV MYSQL_PASSWORD 123
+
+ADD ABCompany.sql /docker-entrypoint-initdb.d
